@@ -1,0 +1,15 @@
+<div class="student-details-component"
+     data-sly-use.model="com.campus.aem.core.models.StudentDetailsModel">
+
+  <div data-sly-test="${model.configured}">
+    <p><strong>Name:</strong> ${model.name}</p>
+    <p><strong>Age:</strong> ${model.age}</p>
+    <p><strong>Class:</strong> ${model.studentClass}</p>
+    <p><strong>Group:</strong> ${model.group}</p>
+  </div>
+
+  <div data-sly-test="${!model.configured}">
+    <p>Please configure Student Details component</p>
+  </div>
+
+</div>

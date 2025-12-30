@@ -1,0 +1,33 @@
+<div data-sly-use.model="com.campus.aem.core.models.OfficeDetailsModel">
+
+    <h2>
+        Office Location:
+        <span>${model.locationName}</span>
+    </h2>
+
+    <!-- FIXED: employees + closing brace -->
+    <div data-sly-test="${model.employees}">
+        <h3>Employees</h3>
+
+        <ul data-sly-list.emp="${model.employees}">
+            <li class="employee-card">
+                <p><strong>Name:</strong> ${emp.name}</p>
+                <p><strong>Age:</strong> ${emp.age}</p>
+                <p><strong>Employment Type:</strong> ${emp.type}</p>
+                <p><strong>Department:</strong> ${emp.department}</p>
+
+                <p>
+                    <strong>Skills:</strong>
+                    <span data-sly-list.skill="${emp.skills}">
+                        ${skill}
+                        <span data-sly-test="${!skillList.last}">, </span>
+                    </span>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div data-sly-test="${!model.employees || model.employees.size == 0}">
+        <p class="empty-state">No employees added.</p>
+    </div>
+
+</div>

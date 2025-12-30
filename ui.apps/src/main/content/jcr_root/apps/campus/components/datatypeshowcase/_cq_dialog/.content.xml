@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Datatype Showcase Properties"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+
+                    <!-- Tab 1: Text Fields -->
+                    <textFieldsTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Text Fields"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- TextField -->
+                                            <textfield
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Text Field"
+                                                fieldDescription="A simple text input field"
+                                                name="./textField"
+                                                emptyText="Enter text here"/>
+                                            <!-- TextField with Required -->
+                                            <textfieldRequired
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Required Text Field"
+                                                fieldDescription="This field is required"
+                                                name="./requiredTextField"
+                                                required="{Boolean}true"/>
+                                            <!-- Text Area -->
+                                            <textarea
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldLabel="Text Area"
+                                                fieldDescription="Multi-line text input"
+                                                name="./textArea"
+                                                rows="5"
+                                                cols="50"/>
+                                            <!-- RichText Editor -->
+                                            <richtext
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Rich Text Editor"
+                                                fieldDescription="Text editor with formatting options"
+                                                name="./richText"
+                                                useFixedInlineToolbar="{Boolean}true"/>
+                                            <!-- Password Field -->
+                                            <password
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/password"
+                                                fieldLabel="Password Field"
+                                                fieldDescription="Masked text input for passwords"
+                                                name="./password"/>
+                                            <!-- Hidden Field -->
+                                            <hidden
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./hiddenField"
+                                                value="defaultHiddenValue"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </textFieldsTab>
+
+                    <!-- Tab 2: Number Fields -->
+                    <numberFieldsTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Number Fields"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- Number Field -->
+                                            <numberfield
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Number Field"
+                                                fieldDescription="Basic number input"
+                                                name="./numberField"/>
+                                            <!-- Number Field with Min/Max -->
+                                            <numberfieldRange
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Number Field (Range 1-100)"
+                                                fieldDescription="Number input with min and max values"
+                                                name="./numberFieldRange"
+                                                min="{Long}1"
+                                                max="{Long}100"/>
+                                            <!-- Number Field with Step -->
+                                            <numberfieldStep
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Number Field (Step 5)"
+                                                fieldDescription="Number input with step increment"
+                                                name="./numberFieldStep"
+                                                step="{Double}5"/>
+                                            <!-- Decimal Number Field -->
+                                            <decimalField
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Decimal Number Field"
+                                                fieldDescription="Number input for decimal values"
+                                                name="./decimalField"
+                                                step="{Double}0.01"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </numberFieldsTab>
+
+                    <!-- Tab 3: Date and Time Fields -->
+                    <dateTimeFieldsTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Date/Time Fields"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- Date Picker -->
+                                            <datePicker
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                fieldLabel="Date Picker"
+                                                fieldDescription="Select a date"
+                                                name="./dateField"
+                                                type="date"
+                                                displayedFormat="YYYY-MM-DD"/>
+                                            <!-- Date Time Picker -->
+                                            <dateTimePicker
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                fieldLabel="Date Time Picker"
+                                                fieldDescription="Select date and time"
+                                                name="./dateTimeField"
+                                                type="datetime"
+                                                displayedFormat="YYYY-MM-DD HH:mm"/>
+                                            <!-- Time Picker -->
+                                            <timePicker
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                fieldLabel="Time Picker"
+                                                fieldDescription="Select a time"
+                                                name="./timeField"
+                                                type="time"
+                                                displayedFormat="HH:mm"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </dateTimeFieldsTab>
+
+                    <!-- Tab 4: Selection Fields -->
+                    <selectionFieldsTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Selection Fields"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- Checkbox (Single) -->
+                                            <checkbox
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldDescription="A single checkbox option"
+                                                name="./checkboxField"
+                                                text="Enable Feature"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false"/>
+                                            <!-- Radio Group -->
+                                            <radioGroup
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+                                                fieldLabel="Radio Group"
+                                                fieldDescription="Select one option"
+                                                name="./radioField"
+                                                vertical="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <option1
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Option 1"
+                                                        value="option1"
+                                                        checked="{Boolean}true"/>
+                                                    <option2
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Option 2"
+                                                        value="option2"/>
+                                                    <option3
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Option 3"
+                                                        value="option3"/>
+                                                </items>
+                                            </radioGroup>
+                                            <!-- Select (Dropdown) -->
+                                            <selectDropdown
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Select (Dropdown)"
+                                                fieldDescription="Choose from dropdown"
+                                                name="./selectField">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <option1
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="-- Select --"
+                                                        value=""/>
+                                                    <option2
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Red"
+                                                        value="red"/>
+                                                    <option3
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Green"
+                                                        value="green"/>
+                                                    <option4
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Blue"
+                                                        value="blue"/>
+                                                    <option5
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Yellow"
+                                                        value="yellow"/>
+                                                </items>
+                                            </selectDropdown>
+                                            <!-- Multi Select -->
+                                            <multiSelect
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Multi Select"
+                                                fieldDescription="Select multiple options"
+                                                name="./multiSelectField"
+                                                multiple="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <item1
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Apple"
+                                                        value="apple"/>
+                                                    <item2
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Banana"
+                                                        value="banana"/>
+                                                    <item3
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Cherry"
+                                                        value="cherry"/>
+                                                    <item4
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Date"
+                                                        value="date"/>
+                                                    <item5
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Elderberry"
+                                                        value="elderberry"/>
+                                                </items>
+                                            </multiSelect>
+                                            <!-- Switch -->
+                                            <switchField
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/switch"
+                                                fieldLabel="Switch"
+                                                fieldDescription="Toggle on/off"
+                                                name="./switchField"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </selectionFieldsTab>
+
+                    <!-- Tab 5: Path and Asset Fields -->
+                    <pathFieldsTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Path/Asset Fields"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- Path Field -->
+                                            <pathField
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="Path Field"
+                                                fieldDescription="Browse and select a path"
+                                                name="./pathField"
+                                                rootPath="/content"/>
+                                            <!-- Path Browser -->
+                                            <pathBrowser
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                fieldLabel="Path Browser"
+                                                fieldDescription="Browse paths with picker"
+                                                name="./pathBrowser"
+                                                rootPath="/content/dam"/>
+                                            <!-- File Upload -->
+                                            <fileUpload
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/fileupload"
+                                                fieldLabel="File Upload"
+                                                fieldDescription="Upload a file"
+                                                name="./file"
+                                                fileNameParameter="./fileName"
+                                                fileReferenceParameter="./fileReference"
+                                                mimeTypes="[image/jpeg,image/png,application/pdf]"
+                                                allowUpload="{Boolean}true"/>
+                                            <!-- Color Field -->
+                                            <colorField
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                                fieldLabel="Color Picker"
+                                                fieldDescription="Select a color"
+                                                name="./colorField"
+                                                showDefaultColors="{Boolean}true"
+                                                showProperties="{Boolean}true"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </pathFieldsTab>
+
+                    <!-- Tab 6: Tag and Link Fields -->
+                    <tagLinkFieldsTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Tags/Links"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- Tag Field -->
+                                            <tagField
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                fieldLabel="Tag Field"
+                                                fieldDescription="Select tags"
+                                                name="./tagField"
+                                                multiple="{Boolean}true"
+                                                rootPath="/content/cq:tags"/>
+                                            <!-- Link URL Field -->
+                                            <linkUrl
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="External URL"
+                                                fieldDescription="Enter an external URL"
+                                                name="./externalUrl"
+                                                validation="url"/>
+                                            <!-- Internal Link (Path) -->
+                                            <internalLink
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="Internal Link"
+                                                fieldDescription="Select an internal page"
+                                                name="./internalLink"
+                                                rootPath="/content"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </tagLinkFieldsTab>
+
+                    <!-- Tab 7: Multifield -->
+                    <multifieldTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Multifield"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- Simple Multifield (String values) -->
+                                            <simpleMultifield
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                fieldLabel="Simple Multifield"
+                                                fieldDescription="Add multiple text values">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    name="./simpleMultifield"/>
+                                            </simpleMultifield>
+                                            <!-- Composite Multifield -->
+                                            <compositeMultifield
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                fieldLabel="Composite Multifield"
+                                                fieldDescription="Add items with multiple properties"
+                                                composite="{Boolean}true">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./compositeMultifield">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <title
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Title"
+                                                            name="./title"/>
+                                                        <description
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                            fieldLabel="Description"
+                                                            name="./description"/>
+                                                        <link
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldLabel="Link"
+                                                            name="./link"
+                                                            rootPath="/content"/>
+                                                    </items>
+                                                </field>
+                                            </compositeMultifield>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </multifieldTab>
+
+                    <!-- Tab 8: Miscellaneous Fields -->
+                    <miscFieldsTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Miscellaneous"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- Heading (Display only) -->
+                                            <heading
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/heading"
+                                                text="Additional Field Types"
+                                                level="3"/>
+                                            <!-- Field Set -->
+                                            <fieldSet
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                                jcr:title="Grouped Fields Example">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <firstName
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="First Name"
+                                                        name="./firstName"/>
+                                                    <lastName
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Last Name"
+                                                        name="./lastName"/>
+                                                </items>
+                                            </fieldSet>
+                                            <!-- Well (Container with background) -->
+                                            <well
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <note
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/text"
+                                                        text="This is a well container that groups content with a subtle background."/>
+                                                    <email
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Email Address"
+                                                        fieldDescription="Enter a valid email"
+                                                        name="./email"
+                                                        validation="email"/>
+                                                </items>
+                                            </well>
+                                            <!-- Alert -->
+                                            <alert
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/alert"
+                                                header="Information"
+                                                text="This is an example alert message displayed in the dialog."
+                                                variant="info"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </miscFieldsTab>
+
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,415 @@
+<!--/*
+    Datatype Showcase Component
+    This component demonstrates rendering all dialog field types without Sling Models
+    Uses HTL's built-in 'properties' object for direct JCR property access
+*/-->
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"/>
+<sly data-sly-call="${templates.placeholder @ isEmpty=!properties.textField && !properties.numberField}"/>
+
+<div class="cmp-datatypeshowcase">
+    <h2 class="cmp-datatypeshowcase__title">Datatype Showcase Component</h2>
+    <p class="cmp-datatypeshowcase__subtitle">Rendering all field values without Sling Models</p>
+
+    <!-- Section 1: Text Fields -->
+    <div class="cmp-datatypeshowcase__section">
+        <h3 class="cmp-datatypeshowcase__section-title">Text Fields</h3>
+        
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.textField}">
+            <span class="cmp-datatypeshowcase__label">Text Field:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.textField}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.requiredTextField}">
+            <span class="cmp-datatypeshowcase__label">Required Text Field:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.requiredTextField}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.textArea}">
+            <span class="cmp-datatypeshowcase__label">Text Area:</span>
+            <pre class="cmp-datatypeshowcase__value cmp-datatypeshowcase__value--pre">${properties.textArea}</pre>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.richText}">
+            <span class="cmp-datatypeshowcase__label">Rich Text:</span>
+            <div class="cmp-datatypeshowcase__value cmp-datatypeshowcase__value--html">${properties.richText @ context='html'}</div>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.password}">
+            <span class="cmp-datatypeshowcase__label">Password Field:</span>
+            <span class="cmp-datatypeshowcase__value">[Hidden for security]</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.hiddenField}">
+            <span class="cmp-datatypeshowcase__label">Hidden Field:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.hiddenField}</span>
+        </div>
+    </div>
+
+    <!-- Section 2: Number Fields -->
+    <div class="cmp-datatypeshowcase__section">
+        <h3 class="cmp-datatypeshowcase__section-title">Number Fields</h3>
+        
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.numberField}">
+            <span class="cmp-datatypeshowcase__label">Number Field:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.numberField}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.numberFieldRange}">
+            <span class="cmp-datatypeshowcase__label">Number Field (Range 1-100):</span>
+            <span class="cmp-datatypeshowcase__value">${properties.numberFieldRange}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.numberFieldStep}">
+            <span class="cmp-datatypeshowcase__label">Number Field (Step 5):</span>
+            <span class="cmp-datatypeshowcase__value">${properties.numberFieldStep}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.decimalField}">
+            <span class="cmp-datatypeshowcase__label">Decimal Number Field:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.decimalField}</span>
+        </div>
+    </div>
+
+    <!-- Section 3: Date/Time Fields -->
+    <div class="cmp-datatypeshowcase__section">
+        <h3 class="cmp-datatypeshowcase__section-title">Date/Time Fields</h3>
+        
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.dateField}">
+            <span class="cmp-datatypeshowcase__label">Date Field:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.dateField}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.dateTimeField}">
+            <span class="cmp-datatypeshowcase__label">Date Time Field:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.dateTimeField}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.timeField}">
+            <span class="cmp-datatypeshowcase__label">Time Field:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.timeField}</span>
+        </div>
+    </div>
+
+    <!-- Section 4: Selection Fields -->
+    <div class="cmp-datatypeshowcase__section">
+        <h3 class="cmp-datatypeshowcase__section-title">Selection Fields</h3>
+        
+        <div class="cmp-datatypeshowcase__item">
+            <span class="cmp-datatypeshowcase__label">Checkbox Field:</span>
+            <span class="cmp-datatypeshowcase__value">
+                <sly data-sly-test="${properties.checkboxField}">Enabled (true)</sly>
+                <sly data-sly-test="${!properties.checkboxField}">Disabled (false)</sly>
+            </span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.radioField}">
+            <span class="cmp-datatypeshowcase__label">Radio Group Selection:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.radioField}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.selectField}">
+            <span class="cmp-datatypeshowcase__label">Select (Dropdown):</span>
+            <span class="cmp-datatypeshowcase__value">${properties.selectField}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.multiSelectField}">
+            <span class="cmp-datatypeshowcase__label">Multi Select:</span>
+            <ul class="cmp-datatypeshowcase__list">
+                <li data-sly-repeat="${properties.multiSelectField}">${item}</li>
+            </ul>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item">
+            <span class="cmp-datatypeshowcase__label">Switch Field:</span>
+            <span class="cmp-datatypeshowcase__value">
+                <sly data-sly-test="${properties.switchField}">ON</sly>
+                <sly data-sly-test="${!properties.switchField}">OFF</sly>
+            </span>
+        </div>
+    </div>
+
+    <!-- Section 5: Path/Asset Fields -->
+    <div class="cmp-datatypeshowcase__section">
+        <h3 class="cmp-datatypeshowcase__section-title">Path/Asset Fields</h3>
+        
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.pathField}">
+            <span class="cmp-datatypeshowcase__label">Path Field:</span>
+            <span class="cmp-datatypeshowcase__value">
+                <a href="${properties.pathField @ extension='html'}">${properties.pathField}</a>
+            </span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.pathBrowser}">
+            <span class="cmp-datatypeshowcase__label">Path Browser:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.pathBrowser}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.fileReference}">
+            <span class="cmp-datatypeshowcase__label">File Upload Reference:</span>
+            <span class="cmp-datatypeshowcase__value">${properties.fileReference}</span>
+            <img data-sly-test="${properties.fileReference}" 
+                 src="${properties.fileReference}" 
+                 alt="Uploaded file"
+                 class="cmp-datatypeshowcase__image"/>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.colorField}">
+            <span class="cmp-datatypeshowcase__label">Color Picker:</span>
+            <span class="cmp-datatypeshowcase__value">
+                <span class="cmp-datatypeshowcase__color-swatch" style="background-color: ${properties.colorField @ context='styleToken'};"></span>
+                ${properties.colorField}
+            </span>
+        </div>
+    </div>
+
+    <!-- Section 6: Tags/Links -->
+    <div class="cmp-datatypeshowcase__section">
+        <h3 class="cmp-datatypeshowcase__section-title">Tags/Links</h3>
+        
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.tagField}">
+            <span class="cmp-datatypeshowcase__label">Tag Field:</span>
+            <ul class="cmp-datatypeshowcase__list">
+                <li data-sly-repeat="${properties.tagField}">${item}</li>
+            </ul>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.externalUrl}">
+            <span class="cmp-datatypeshowcase__label">External URL:</span>
+            <span class="cmp-datatypeshowcase__value">
+                <a href="${properties.externalUrl}" target="_blank" rel="noopener noreferrer">${properties.externalUrl}</a>
+            </span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.internalLink}">
+            <span class="cmp-datatypeshowcase__label">Internal Link:</span>
+            <span class="cmp-datatypeshowcase__value">
+                <a href="${properties.internalLink @ extension='html'}">${properties.internalLink}</a>
+            </span>
+        </div>
+    </div>
+
+    <!-- Section 7: Multifield -->
+    <div class="cmp-datatypeshowcase__section">
+        <h3 class="cmp-datatypeshowcase__section-title">Multifield</h3>
+        
+        <!-- Simple Multifield -->
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.simpleMultifield}">
+            <span class="cmp-datatypeshowcase__label">Simple Multifield:</span>
+            <ul class="cmp-datatypeshowcase__list">
+                <li data-sly-repeat="${properties.simpleMultifield}">${item}</li>
+            </ul>
+        </div>
+
+        <!-- Composite Multifield - requires resource access -->
+        <sly data-sly-resource="${'compositeMultifield' @ resourceType='campus/components/datatypeshowcase/compositeMultifieldRenderer'}"/>
+        
+        <!-- Alternative: Direct iteration over child resources -->
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${resource.children}">
+            <span class="cmp-datatypeshowcase__label">Composite Multifield Items:</span>
+            <div data-sly-list.child="${resource.children}">
+                <sly data-sly-test="${child.name == 'compositeMultifield'}">
+                    <div class="cmp-datatypeshowcase__multifield-container" data-sly-list.item="${child.children}">
+                        <div class="cmp-datatypeshowcase__multifield-item">
+                            <sly data-sly-use.itemProps="${item.path @ resourceType='sling/bundle/resource'}"/>
+                            <strong>Title:</strong> ${item.valueMap.title}<br/>
+                            <strong>Description:</strong> ${item.valueMap.description}<br/>
+                            <strong>Link:</strong> ${item.valueMap.link}
+                        </div>
+                    </div>
+                </sly>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 8: Miscellaneous Fields -->
+    <div class="cmp-datatypeshowcase__section">
+        <h3 class="cmp-datatypeshowcase__section-title">Miscellaneous Fields</h3>
+        
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.firstName || properties.lastName}">
+            <span class="cmp-datatypeshowcase__label">Name (from Fieldset):</span>
+            <span class="cmp-datatypeshowcase__value">${properties.firstName} ${properties.lastName}</span>
+        </div>
+
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.email}">
+            <span class="cmp-datatypeshowcase__label">Email:</span>
+            <span class="cmp-datatypeshowcase__value">
+                <a href="mailto:${properties.email}">${properties.email}</a>
+            </span>
+        </div>
+    </div>
+
+    <!-- Debug: Show all properties -->
+    <details class="cmp-datatypeshowcase__debug" data-sly-test="${wcmmode.edit || wcmmode.preview}">
+        <summary>Debug: All Properties</summary>
+        <table class="cmp-datatypeshowcase__debug-table">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-sly-repeat="${properties}">
+                    <td>${itemList.key}</td>
+                    <td>${item}</td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+</div>
+
+<style>
+.cmp-datatypeshowcase {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.cmp-datatypeshowcase__title {
+    color: #333;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+}
+
+.cmp-datatypeshowcase__subtitle {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.cmp-datatypeshowcase__section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cmp-datatypeshowcase__section-title {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.cmp-datatypeshowcase__item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cmp-datatypeshowcase__item:last-child {
+    border-bottom: none;
+}
+
+.cmp-datatypeshowcase__label {
+    font-weight: 600;
+    color: #555;
+    min-width: 200px;
+    margin-right: 20px;
+}
+
+.cmp-datatypeshowcase__value {
+    color: #333;
+    flex: 1;
+}
+
+.cmp-datatypeshowcase__value--pre {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.cmp-datatypeshowcase__value--html {
+    padding: 10px;
+    background: #fafafa;
+    border-left: 3px solid #007bff;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.cmp-datatypeshowcase__list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.cmp-datatypeshowcase__list li {
+    margin-bottom: 5px;
+}
+
+.cmp-datatypeshowcase__color-swatch {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.cmp-datatypeshowcase__image {
+    max-width: 300px;
+    max-height: 200px;
+    margin-top: 10px;
+    border-radius: 4px;
+    display: block;
+}
+
+.cmp-datatypeshowcase__multifield-container {
+    margin-top: 10px;
+}
+
+.cmp-datatypeshowcase__multifield-item {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.cmp-datatypeshowcase__debug {
+    margin-top: 20px;
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #ffc107;
+}
+
+.cmp-datatypeshowcase__debug summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #856404;
+}
+
+.cmp-datatypeshowcase__debug-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.cmp-datatypeshowcase__debug-table th,
+.cmp-datatypeshowcase__debug-table td {
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.cmp-datatypeshowcase__debug-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+.cmp-datatypeshowcase__debug-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+</style>

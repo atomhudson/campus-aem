@@ -1,0 +1,34 @@
+<sly data-sly-use.contactObj="com.campus.aem.core.models.ContactCardsModel" />
+
+<!-- Show contacts if available -->
+<sly data-sly-test="${contactObj.contact}">
+    <div class="g-row">
+        <sly data-sly-list.item="${contactObj.contact}">
+            <div class="g-col g-palm-wide-and-up--1-2 g-desk--1-4 print-hidden">
+                <div class="info-box">
+                    <div class="info-box__body">
+
+                        <sly data-sly-test="${item.contactName}">
+                            Name - ${item.contactName}<br>
+                        </sly>
+
+                        <sly data-sly-test="${item.contactEmail}">
+                            Email -
+                            <a href="mailto:${item.contactEmail}">
+                                ${item.contactEmail}
+                            </a>
+                        </sly>
+
+                    </div>
+                </div>
+            </div>
+        </sly>
+    </div>
+</sly>
+
+<!-- Show fallback text when nothing is there -->
+<sly data-sly-test="${!contactObj.contact}">
+    <div class="empty-text">
+        No contact details available.
+    </div>
+</sly>

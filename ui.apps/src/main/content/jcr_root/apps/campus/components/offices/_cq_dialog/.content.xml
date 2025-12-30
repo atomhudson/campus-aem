@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:cq="http://www.day.com/jcr/cq/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Office Details"
+        sling:resourceType="cq/gui/components/authoring/dialog">
+
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+
+        <items jcr:primaryType="nt:unstructured">
+
+            <officeWell
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/well">
+
+                <items jcr:primaryType="nt:unstructured">
+
+                    <!-- OFFICE LOCATION -->
+                    <locationName
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                            fieldLabel="Office Location"
+                            name="./locationName"
+                            emptyText="Select Office Location"
+                            required="{Boolean}true">
+
+                        <items jcr:primaryType="nt:unstructured">
+                            <del jcr:primaryType="nt:unstructured" text="Delhi" value="delhi"/>
+                            <noi jcr:primaryType="nt:unstructured" text="Noida" value="noida"/>
+                            <gur jcr:primaryType="nt:unstructured" text="Gurugram" value="gurugram"/>
+                            <blr jcr:primaryType="nt:unstructured" text="Bangalore" value="bangalore"/>
+                            <hyd jcr:primaryType="nt:unstructured" text="Hyderabad" value="hyderabad"/>
+                            <pune jcr:primaryType="nt:unstructured" text="Pune" value="pune"/>
+                            <chennai jcr:primaryType="nt:unstructured" text="Chennai" value="chennai"/>
+                        </items>
+                    </locationName>
+
+                    <!-- EMPLOYEES MULTIFIELD -->
+                    <employees
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                            fieldLabel="Employees"
+                            composite="{Boolean}true">
+
+                        <field
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                name="./employees">
+
+                            <items jcr:primaryType="nt:unstructured">
+
+                                <empName
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Employee Name"
+                                        name="./name"/>
+
+                                <age
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                        fieldLabel="Age"
+                                        name="./age"/>
+
+                                <employmentType
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+                                        fieldLabel="Employment Type"
+                                        name="./type">
+
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <permanent jcr:primaryType="nt:unstructured" text="Permanent" value="permanent"/>
+                                        <contract jcr:primaryType="nt:unstructured" text="Contract" value="contract"/>
+                                    </items>
+                                </employmentType>
+
+                                <department
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                        fieldLabel="Department"
+                                        name="./department">
+
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <it jcr:primaryType="nt:unstructured" text="IT" value="it"/>
+                                        <hr jcr:primaryType="nt:unstructured" text="HR" value="hr"/>
+                                        <finance jcr:primaryType="nt:unstructured" text="Finance" value="finance"/>
+                                    </items>
+                                </department>
+
+                                <skills
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkboxgroup"
+                                        fieldLabel="Skills"
+                                        name="./skills">
+
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <java jcr:primaryType="nt:unstructured" text="Java" value="java"/>
+                                        <aem jcr:primaryType="nt:unstructured" text="AEM" value="aem"/>
+                                        <react jcr:primaryType="nt:unstructured" text="React" value="react"/>
+                                        <mysql jcr:primaryType="nt:unstructured" text="MySQL" value="mysql"/>
+                                        <python jcr:primaryType="nt:unstructured" text="Python" value="python"/>
+                                        <docker jcr:primaryType="nt:unstructured" text="Docker" value="docker"/>
+                                        <html jcr:primaryType="nt:unstructured" text="HTML" value="html"/>
+                                        <css jcr:primaryType="nt:unstructured" text="CSS" value="css"/>
+                                        <javascript jcr:primaryType="nt:unstructured" text="JavaScript" value="javascript"/>
+                                        <angular jcr:primaryType="nt:unstructured" text="Angular" value="angular"/>
+                                    </items>
+                                </skills>
+
+                            </items>
+                        </field>
+                    </employees>
+
+                </items>
+            </officeWell>
+
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,17 @@
+<sly data-sly-use.model="com.campus.aem.core.models.ContactListModel"/>
+
+<div class="contact-list">
+    <sly data-sly-list.contact="${model.contacts}">
+        <div class="contact-card">
+            <h3>${contact.name}</h3>
+            <p>${contact.designation}</p>
+            <p>Email: ${contact.email}</p>
+            <p>Phone: ${contact.phone}</p>
+        </div>
+    </sly>
+    <sly data-sly-test="${!model.contacts}">
+        <div class="empty-text">
+            No contact details available.
+        </div>
+    </sly>
+</div>
