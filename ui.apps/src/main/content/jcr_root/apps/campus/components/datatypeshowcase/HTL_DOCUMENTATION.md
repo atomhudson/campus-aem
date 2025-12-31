@@ -55,6 +55,28 @@ ${expression @ option='value'}
 ${expression @ option1='value1', option2='value2'}
 ```
 
+### Formatting Dates
+Date properties in JCR are stored as `java.util.Calendar` objects. To display them properly, use the `.time` property with the `@ format` option:
+
+```html
+<!-- Access the time in milliseconds and format it -->
+${properties.dateField.time @ format='yyyy-MM-dd'}
+${properties.dateTimeField.time @ format='yyyy-MM-dd HH:mm:ss'}
+${properties.timeField.time @ format='HH:mm:ss'}
+```
+
+**Common Date Format Patterns:**
+| Pattern | Description | Example |
+|---------|-------------|---------|
+| `yyyy` | 4-digit year | 2025 |
+| `MM` | 2-digit month | 12 |
+| `dd` | 2-digit day | 30 |
+| `HH` | 24-hour hour | 17 |
+| `mm` | Minutes | 30 |
+| `ss` | Seconds | 45 |
+| `EEEE` | Full day name | Monday |
+| `MMM` | Short month | Dec |
+
 ---
 
 ## 3. Block Statements

@@ -76,17 +76,25 @@
         
         <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.dateField}">
             <span class="cmp-datatypeshowcase__label">Date Field:</span>
-            <span class="cmp-datatypeshowcase__value">${properties.dateField}</span>
+            <span class="cmp-datatypeshowcase__value">${properties.dateField.time @ format='yyyy-MM-dd'}</span>
         </div>
 
         <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.dateTimeField}">
             <span class="cmp-datatypeshowcase__label">Date Time Field:</span>
-            <span class="cmp-datatypeshowcase__value">${properties.dateTimeField}</span>
+            <span class="cmp-datatypeshowcase__value">${properties.dateTimeField.time @ format='yyyy-MM-dd HH:mm:ss'}</span>
         </div>
 
         <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.timeField}">
             <span class="cmp-datatypeshowcase__label">Time Field:</span>
-            <span class="cmp-datatypeshowcase__value">${properties.timeField}</span>
+            <span class="cmp-datatypeshowcase__value">${properties.timeField.time @ format='HH:mm:ss'}</span>
+        </div>
+
+        <!-- Email Field with Validation -->
+        <div class="cmp-datatypeshowcase__item" data-sly-test="${properties.emailField}">
+            <span class="cmp-datatypeshowcase__label">Email Field:</span>
+            <span class="cmp-datatypeshowcase__value">
+                <a href="mailto:${properties.emailField}">${properties.emailField}</a>
+            </span>
         </div>
     </div>
 
