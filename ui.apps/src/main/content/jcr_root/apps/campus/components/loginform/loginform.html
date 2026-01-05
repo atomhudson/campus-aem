@@ -1,0 +1,19 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+
+<sly data-sly-call="${clientlib.all @ categories='campus-aem.login'}"/>
+
+<div class="login-container">
+    <form class="login-form" onsubmit="return handleLogin(event)">
+
+        <label>${properties.usernameLabel}</label>
+        <input type="text" id="username" required />
+
+        <label>${properties.passwordLabel}</label>
+        <input type="password" id="password" required />
+
+        <button type="submit">
+            ${properties.buttonText}
+        </button>
+
+    </form>
+</div>
