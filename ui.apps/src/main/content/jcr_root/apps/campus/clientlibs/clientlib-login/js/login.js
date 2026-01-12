@@ -1,25 +1,43 @@
-function handleLogin(event) {
+function handleLogin(event, formElement) {
     "use strict";
     event.preventDefault();
 
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+    var $form = $(formElement);
+    var username = $form.find("#username").val();
+    var password = $form.find("#password").val();
+    var $messageEl = $("#loginMessage");
+
+    $messageEl.text("").css("color", "");
 
     if (!username || !password) {
-        alert("Username and Password are required!");
+        $messageEl
+            .css("color", "red")
+            .text("Username and Password are required");
         return false;
     }
 
-    // Example logic
-    console.log("Username:", username);
-    console.log("Password:", password);
-
-    alert("Login button clicked!");
-
-    // Later:
-    // - Call servlet
-    // - Call REST API
-    // - Redirect page
-
-    return true;
+    $.ajax({
+        url: "/bin/loginForm.json",
+        type: "POST",
+        dataType: "json",
+        data: {
+            username: username,
+            password: password
+        },
+        success: function (response) {
+            $messageEl
+                .css("color", "green")
+                .text("Login successful");
+        },
+        error: function (serverResponse) {
+            var message =
+                (serverResponse.responseJSON && serverResponse.responseJSON.message)
+                    ? serverResponse.responseJSON.message
+                    : "Invalid credentials";
+            $messageEl
+                .css("color", "red")
+                .text(message);
+        }
+    });
+    return false;
 }
