@@ -17,6 +17,7 @@ public class LoginServiceImplementation implements LoginService {
         tempMap.put("user1@gmail.com", "password123");
         tempMap.put("user2@gmail.com", "test@123");
         tempMap.put("dhruvsaini0904@gmail.com", "dhruvsaini@123");
+        tempMap.put("dhruvsaini04@gmail.com", "dhruvsaini@123");
     }
 
     @Override
